@@ -79,6 +79,34 @@
     pointer-events: auto;
 }
 
+/* ===== BIG HEART FIX ===== */
+.heart.big-heart.beat {
+    width: 110px;
+    height: 110px;
+    position: relative;
+    transform: rotate(45deg);
+    background: #ff4fa3;
+    animation: beat 1s infinite;
+}
+
+.heart.big-heart.beat::before,
+.heart.big-heart.beat::after {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: #ff4fa3;
+    border-radius: 50%;
+}
+
+.heart.big-heart.beat::before { top: -55px; }
+.heart.big-heart.beat::after { left: -55px; }
+
+@keyframes beat {
+    0%,100%{transform:rotate(45deg) scale(1)}
+    50%{transform:rotate(45deg) scale(1.15)}
+}
+
 /* HEART RAIN */
 .heart-rain {
     position: fixed;
