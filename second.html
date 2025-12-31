@@ -1,118 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Just One More 😉</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Just One More 😉</title>
+<link rel="stylesheet" href="style.css">
 
-    <style>
-        /* ===== INDIVIDUAL QUOTE ANIMATIONS ===== */
-        .quote-line {
-            opacity: 0;
-            transform: translateX(-100vw);
-            display: block;
-            animation: flyIn 1.6s cubic-bezier(.17,.67,.4,1) forwards;
-            animation-play-state: paused;
-        }
-        .quote-line.delay1 { animation-delay: 0.8s; }
-        .quote-line.delay2 { animation-delay: 1.8s; }
-        .quote-line.delay3 { animation-delay: 2.8s; }
-        .quote-line.delay4 { animation-delay: 3.8s; }
+<style>
+/* ===== INDIVIDUAL QUOTE ANIMATIONS ===== */
+.quote-line {
+    opacity: 0;
+    transform: translateX(-100vw);
+    display: block;
+    animation: flyIn 1.6s cubic-bezier(.17,.67,.4,1) forwards;
+    animation-play-state: paused;
+}
+.quote-line.delay1 { animation-delay: 0.8s; }
+.quote-line.delay2 { animation-delay: 1.8s; }
+.quote-line.delay3 { animation-delay: 2.8s; }
+.quote-line.delay4 { animation-delay: 3.8s; }
 
-        @keyframes flyIn {
-            to { opacity: 1; transform: translateX(0); }
-        }
+@keyframes flyIn {
+    to { opacity: 1; transform: translateX(0); }
+}
 
-        .soft-float {
-            animation: softFloat 4s ease-in-out infinite;
-        }
-        @keyframes softFloat {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
+.soft-float {
+    animation: softFloat 4s ease-in-out infinite;
+}
+@keyframes softFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
 
-        .happy-new-year {
-            display: inline-block;
-            opacity: 0;
-            transform: rotate(-720deg) scale(0);
-            animation: spinPop 3s ease-out forwards;
-            animation-delay: 5s;
-            animation-play-state: paused;
-            font-size: 3.4rem;
-        }
+.happy-new-year {
+    display: inline-block;
+    opacity: 0;
+    transform: rotate(-720deg) scale(0);
+    animation: spinPop 3s ease-out forwards;
+    animation-delay: 5s;
+    animation-play-state: paused;
+    font-size: 3.4rem;
+}
 
-        @keyframes spinPop {
-            0% { transform: rotate(-720deg) scale(0); opacity: 0; }
-            60% { transform: rotate(360deg) scale(1.45); opacity: 1; }
-            100% { transform: rotate(0deg) scale(1); opacity: 1; }
-        }
+@keyframes spinPop {
+    0% { transform: rotate(-720deg) scale(0); opacity: 0; }
+    60% { transform: rotate(360deg) scale(1.45); opacity: 1; }
+    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
 
-        .gift-btn {
-            opacity: 0;
-            transform: scale(0.4);
-            animation: bounceIn 1.6s ease-out forwards;
-            animation-delay: 6.5s;
-            animation-play-state: paused;
-        }
+.gift-btn {
+    opacity: 0;
+    transform: scale(0.4);
+    animation: bounceIn 1.6s ease-out forwards;
+    animation-delay: 6.5s;
+    animation-play-state: paused;
+}
 
-        @keyframes bounceIn {
-            0% { transform: scale(0.4); opacity: 0; }
-            60% { transform: scale(1.35); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+@keyframes bounceIn {
+    0% { transform: scale(0.4); opacity: 0; }
+    60% { transform: scale(1.35); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
 
-        .stage-1.hide {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 1s ease;
-        }
+.stage-1.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
 
-        .stage-2 {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 1.6s ease;
-        }
-        .stage-2.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
+.stage-2 {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.6s ease;
+}
+.stage-2.show {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-        .heart-rain {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
+/* HEART RAIN */
+.heart-rain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
 
-        .falling-heart {
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            background: #ff4fa3;
-            transform: rotate(45deg);
-            animation: heartFall linear forwards;
-        }
+.falling-heart {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ff4fa3;
+    transform: rotate(45deg);
+    animation: heartFall linear forwards;
+}
 
-        .falling-heart::before,
-        .falling-heart::after {
-            content: '';
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            background: #ff4fa3;
-            border-radius: 50%;
-        }
+.falling-heart::before,
+.falling-heart::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ff4fa3;
+    border-radius: 50%;
+}
+.falling-heart::before { top: -7px; left: 0; }
+.falling-heart::after { left: -7px; top: 0; }
 
-        .falling-heart::before { top: -7px; left: 0; }
-        .falling-heart::after { left: -7px; top: 0; }
+@keyframes heartFall {
+    0% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(45deg); opacity: 0; }
+}
 
-        @keyframes heartFall {
-            from { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
-            to { transform: translateY(110vh) rotate(45deg); opacity: 0; }
-        }
-    </style>
+/* MOBILE ADJUSTMENTS */
+@media(max-width:600px){
+    .heart.big-heart.beat{
+        width: 70px !important;
+        height: 70px !important;
+    }
+    .heart.big-heart.beat::before,
+    .heart.big-heart.beat::after{
+        width: 70px !important;
+        height: 70px !important;
+    }
+    .quote-line{
+        font-size: 0.9rem !important;
+    }
+    .happy-new-year{
+        font-size:2rem !important;
+    }
+    .gift-btn{
+        font-size:0.9rem !important;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -214,6 +238,7 @@ function goNext() {
     stage2.querySelector(".gift-btn").style.animationPlayState="running";
 }
 
+// HEART RAIN WORKING
 const heartRain = document.querySelector(".heart-rain");
 setInterval(() => {
     for (let i = 0; i < 6; i++) {
@@ -221,6 +246,7 @@ setInterval(() => {
         heart.className = "falling-heart";
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = (2 + Math.random()*2) + "s";
+        heart.style.opacity = 0.6 + Math.random() * 0.4;
         heartRain.appendChild(heart);
         setTimeout(()=>heart.remove(),6000);
     }
