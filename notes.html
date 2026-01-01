@@ -105,14 +105,6 @@ body {margin:0; font-family:'Segoe UI',sans-serif; overflow-x:hidden; background
 <div class="heart-container"></div>
 
 <script>
-const audioSrc = 'Screenrecorder-2025-12-31-18-31-13-971.mp3';
-let audio = new Audio(audioSrc);
-audio.loop=true;
-function startAudio(){audio.play().catch(()=>{});}
-window.addEventListener('load', startAudio);
-document.addEventListener('click', startAudio, {once:true});
-document.addEventListener('touchstart', startAudio, {once:true});
-
 // Floating hearts same as home
 const heartContainer=document.querySelector('.heart-container');
 const hearts=[];
